@@ -1,0 +1,2 @@
+# Create local.properties file (if not existing) and add the Android SDK path as shown below
+sdk.dir="Path to Android sdk"
