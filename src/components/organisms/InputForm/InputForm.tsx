@@ -4,26 +4,28 @@ import {styles} from './styles';
 import Button from '../../atoms/Button';
 import Title from '../../atoms/Title';
 import InputField from '../../molecules/InputField';
+import {IPageInfo} from '../../pages/AboutYou/types';
 
 type Props = {
+  pageInfo: Partial<IPageInfo>;
   handleContinue: (text: string) => void;
 };
 
-const NameForm = ({handleContinue}: Props) => {
+const NameForm = ({pageInfo, handleContinue}: Props) => {
   const [text, onChangeText] = useState<string>('');
   const handlePress = useCallback(() => {
     handleContinue(text);
   }, [handleContinue, text]);
   return (
     <View style={styles.container}>
-      <Title>{'Tell us about yourself'}</Title>
+      <Title>{pageInfo?.title}</Title>
       <InputField
         text={text}
         onChangeText={onChangeText}
-        label="What your name?"
-        placeholder="Enter your name"
+        label={pageInfo?.inputLabel}
+        placeholder={pageInfo?.inputPlaceholder}
       />
-      <Button title="Continue" onPress={handlePress} />
+      <Button title={pageInfo?.buttonText} onPress={handlePress} />
     </View>
   );
 };
