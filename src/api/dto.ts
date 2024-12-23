@@ -4,3 +4,9 @@ export interface IPageInfo {
   inputPlaceholder: string;
   buttonText: string;
 }
+
+export interface IPageInfoMultiselect {
+  title: string;
+  options: Array<string>;
+  buttonText: string;
+}

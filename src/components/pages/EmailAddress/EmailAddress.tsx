@@ -4,10 +4,10 @@ import {styles} from './styles';
 import InputFormPage from '../../templates/InputFormPage';
 import {MainRoutes} from '../../../navigation/routes';
 import {useAppNavigation} from '../../../navigation/MainNavigator';
-import {IPageInfo} from '../AboutYou/types';
 import {getEmailInfo, postEmail} from '../../../api/getQuestions';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {ScrollView} from 'react-native-gesture-handler';
+import {IPageInfo} from '../../../api/dto';
 
 const EmailAddress = () => {
   const [pageInfo, setPageInfo] = useState<Partial<IPageInfo>>({});
@@ -21,9 +21,13 @@ const EmailAddress = () => {
     fetchData();
   }, []);
 
-  const handleContinue = useCallback(async (text: string) => {
-    await postEmail(text);
-  }, []);
+  const handleContinue = useCallback(
+    async (text: string) => {
+      await postEmail(text);
+      navigate(MainRoutes.superpowersInfo);
+    },
+    [navigate],
+  );
   return (
     <SafeAreaView style={styles.saveArea}>
       <ScrollView contentContainerStyle={styles.container}>

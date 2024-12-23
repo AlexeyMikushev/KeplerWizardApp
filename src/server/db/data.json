@@ -10,5 +10,16 @@
     "inputLabel": "What your email?",
     "inputPlaceholder": "Enter your email",
     "buttonText": "Continue"
+  },
+  "superpowers": {
+    "title": "If you could have any of these superpowers, which ones would you choose?",
+    "options": [
+      "Teleportation",
+      "Invisibility",
+      "Telekinesis",
+      "Time Travel",
+      "Talk to Animals"
+    ],
+    "buttonText": "Continue"
   }
 }

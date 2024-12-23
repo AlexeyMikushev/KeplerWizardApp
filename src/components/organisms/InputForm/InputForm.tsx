@@ -4,7 +4,7 @@ import {styles} from './styles';
 import Button from '../../atoms/Button';
 import Title from '../../atoms/Title';
 import InputField from '../../molecules/InputField';
-import {IPageInfo} from '../../pages/AboutYou/types';
+import {IPageInfo} from '../../../api/dto';
 
 type Props = {
   pageInfo: Partial<IPageInfo>;

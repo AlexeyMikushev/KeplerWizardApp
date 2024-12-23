@@ -3,10 +3,10 @@ import {SafeAreaView, ScrollView} from 'react-native';
 
 import {styles} from './styles';
 import {getAboutYouInfo, postName} from '../../../api/getQuestions';
-import {IPageInfo} from './types';
 import InputFormPage from '../../templates/InputFormPage';
 import {useAppNavigation} from '../../../navigation/MainNavigator';
 import {MainRoutes} from '../../../navigation/routes';
+import {IPageInfo} from '../../../api/dto';
 
 function AboutYou(): React.JSX.Element {
   const [pageInfo, setPageInfo] = useState<Partial<IPageInfo>>({});
