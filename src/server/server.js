@@ -17,6 +17,12 @@ app.use(express.json());
 app.get('/about-you', (req, res) => {
   res.json(mockData['about-you']);
 });
+app.get('/email', (req, res) => {
+  res.json(mockData.email);
+});
+app.get('/superpowers', (req, res) => {
+  res.json(mockData.superpowers);
+});
 
 app.post('/name', (req, res) => {
   const {name} = req.body;
@@ -28,6 +34,12 @@ app.post('/email', (req, res) => {
   const {email} = req.body;
   if (email) {
     res.json({message: `Email saved - ${email}!`});
+  }
+});
+app.post('/superpowers', (req, res) => {
+  const {superpowers} = req.body;
+  if (superpowers) {
+    res.json({message: `${superpowers?.length} superpowers saved!`});
   }
 });
 

@@ -1,8 +1,9 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  title: {
-    marginHorizontal: 20,
-    fontSize: 30,
+  container: {
+    paddingHorizontal: 40,
+    width: '100%',
+    gap: 10,
   },
 });

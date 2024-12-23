@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import InputForm from '../../organisms/InputForm';
 
 import {styles} from './styles';
-import {IPageInfo} from '../../pages/AboutYou/types';
+import {IPageInfo} from '../../../api/dto';
 
 type Props = {
   pageInfo: Partial<IPageInfo>;
@@ -18,4 +18,4 @@ const InputFormPage = ({pageInfo, handleContinue}: Props) => {
   );
 };
 
-export default React.memo(InputFormPage);
+export default InputFormPage;

@@ -1,8 +1,7 @@
 import axios from 'axios';
 import data from '../server/db/data.json';
-import {IPageInfo} from '../components/pages/AboutYou/types';
+import {IPageInfo, IPageInfoMultiselect} from './dto';
 
-// Create an instance of axios with default settings
 const api = axios.create({
   baseURL: 'http://localhost:3000',
 });
@@ -26,6 +25,18 @@ export const getEmailInfo = async (): Promise<Partial<IPageInfo>> => {
   }
 };
 
+export const getSuperpowersInfo = async (): Promise<
+  Partial<IPageInfoMultiselect>
+> => {
+  try {
+    const response = await api.get('/superpowers');
+    return response.data;
+  } catch (error) {
+    // if there is a problem with CORS return data directly
+    return data.superpowers;
+  }
+};
+
 export const postName = async (name: string) => {
   try {
     const response = await api.post('/name', {name});
@@ -37,6 +48,14 @@ export const postName = async (name: string) => {
 export const postEmail = async (email: string) => {
   try {
     const response = await api.post('/email', {email});
+    return response.data;
+  } catch (error) {
+    console.warn('error', error);
+  }
+};
+export const postSuperpowersInfo = async (superpowers: Array<string>) => {
+  try {
+    const response = await api.post('/superpowers', {superpowers});
     return response.data;
   } catch (error) {
     console.warn('error', error);
