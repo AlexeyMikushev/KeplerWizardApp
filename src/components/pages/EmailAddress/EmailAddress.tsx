@@ -1,33 +1,29 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {SafeAreaView, ScrollView} from 'react-native';
 
 import {styles} from './styles';
-import {getAboutYouInfo, postName} from '../../../api/getQuestions';
-import {IPageInfo} from './types';
 import InputFormPage from '../../templates/InputFormPage';
-import {useAppNavigation} from '../../../navigation/MainNavigator';
 import {MainRoutes} from '../../../navigation/routes';
+import {useAppNavigation} from '../../../navigation/MainNavigator';
+import {IPageInfo} from '../AboutYou/types';
+import {getEmailInfo, postEmail} from '../../../api/getQuestions';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {ScrollView} from 'react-native-gesture-handler';
 
-function AboutYou(): React.JSX.Element {
+const EmailAddress = () => {
   const [pageInfo, setPageInfo] = useState<Partial<IPageInfo>>({});
   const {navigate} = useAppNavigation();
 
   useEffect(() => {
     async function fetchData() {
-      const info = await getAboutYouInfo();
+      const info = await getEmailInfo();
       setPageInfo(info);
     }
     fetchData();
   }, []);
 
-  const handleContinue = useCallback(
-    async (text: string) => {
-      await postName(text);
-      navigate(MainRoutes.email);
-    },
-    [navigate],
-  );
-
+  const handleContinue = useCallback(async (text: string) => {
+    await postEmail(text);
+  }, []);
   return (
     <SafeAreaView style={styles.saveArea}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -35,6 +31,6 @@ function AboutYou(): React.JSX.Element {
       </ScrollView>
     </SafeAreaView>
   );
-}
+};
 
-export default AboutYou;
+export default React.memo(EmailAddress);

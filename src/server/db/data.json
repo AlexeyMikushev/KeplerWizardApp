@@ -1,8 +1,14 @@
 {
-  "home-page": [
-    {
-      "id": 1,
-      "name": "name"
-    }
-  ]
+  "about-you": {
+    "title": "Tell us about yourself",
+    "inputLabel": "What your name?",
+    "inputPlaceholder": "Enter your name",
+    "buttonText": "Continue"
+  },
+  "email": {
+    "title": "Please tell us your email",
+    "inputLabel": "What your email?",
+    "inputPlaceholder": "Enter your email",
+    "buttonText": "Continue"
+  }
 }
