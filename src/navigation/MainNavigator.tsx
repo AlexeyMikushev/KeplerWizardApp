@@ -11,6 +11,7 @@ import Header from '../components/organisms/Header';
 import AboutYou from '../components/pages/AboutYou';
 import EmailAddress from '../components/pages/EmailAddress';
 import SuperpowersInfo from '../components/pages/SuperpowersInfo';
+import FavoriteNumber from '../components/pages/FavoriteNumber';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ export const useAppNavigation = () =>
 const MainNavigator = () => {
   const progressBarScreens = useRef([
     MainRoutes.aboutYou,
+    MainRoutes.favoriteNumber,
     MainRoutes.email,
     MainRoutes.superpowersInfo,
   ]).current;
@@ -37,6 +39,21 @@ const MainNavigator = () => {
                 <Header
                   progressCount={progressBarScreens.indexOf(
                     MainRoutes.aboutYou,
+                  )}
+                  progressBarMax={progressBarMax}
+                />
+              ),
+              headerShown: true,
+            }}
+          />
+          <Stack.Screen
+            component={FavoriteNumber}
+            name={MainRoutes.favoriteNumber}
+            options={{
+              header: () => (
+                <Header
+                  progressCount={progressBarScreens.indexOf(
+                    MainRoutes.favoriteNumber,
                   )}
                   progressBarMax={progressBarMax}
                 />

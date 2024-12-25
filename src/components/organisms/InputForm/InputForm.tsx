@@ -24,6 +24,7 @@ const NameForm = ({pageInfo, handleContinue}: Props) => {
         onChangeText={onChangeText}
         label={pageInfo?.inputLabel}
         placeholder={pageInfo?.inputPlaceholder}
+        keyboardType={pageInfo?.keyboardType}
       />
       <Button title={pageInfo?.buttonText} onPress={handlePress} />
     </View>

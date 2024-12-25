@@ -1,13 +1,20 @@
 {
   "about-you": {
     "title": "Tell us about yourself",
-    "inputLabel": "What your name?",
+    "inputLabel": "What's your name?",
     "inputPlaceholder": "Enter your name",
     "buttonText": "Continue"
   },
+  "favorite-number": {
+    "title": "Please share your favorite number",
+    "inputLabel": "What's your favorite number?",
+    "inputPlaceholder": "Enter number",
+    "buttonText": "Continue",
+    "keyboardType": "numeric"
+  },
   "email": {
     "title": "Please tell us your email",
-    "inputLabel": "What your email?",
+    "inputLabel": "What's your email?",
     "inputPlaceholder": "Enter your email",
     "buttonText": "Continue"
   },

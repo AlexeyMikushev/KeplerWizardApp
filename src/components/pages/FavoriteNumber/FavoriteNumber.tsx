@@ -2,28 +2,31 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {SafeAreaView, ScrollView} from 'react-native';
 
 import {styles} from './styles';
-import {getAboutYouInfo, postName} from '../../../api/getQuestions';
+import {
+  getFavoriteNumberInfo,
+  postFavoriteNumber,
+} from '../../../api/getQuestions';
 import InputFormPage from '../../templates/InputFormPage';
 import {useAppNavigation} from '../../../navigation/MainNavigator';
 import {MainRoutes} from '../../../navigation/routes';
 import {IPageInfo} from '../../../api/dto';
 
-function AboutYou(): React.JSX.Element {
+function FavoriteNumber(): React.JSX.Element {
   const [pageInfo, setPageInfo] = useState<Partial<IPageInfo>>({});
   const {navigate} = useAppNavigation();
 
   useEffect(() => {
     async function fetchData() {
-      const info = await getAboutYouInfo();
+      const info = await getFavoriteNumberInfo();
       setPageInfo(info);
     }
     fetchData();
   }, []);
 
   const handleContinue = useCallback(
-    async (text: string) => {
-      await postName(text);
-      navigate(MainRoutes.favoriteNumber);
+    async (number: string) => {
+      await postFavoriteNumber(number);
+      navigate(MainRoutes.email);
     },
     [navigate],
   );
@@ -37,4 +40,4 @@ function AboutYou(): React.JSX.Element {
   );
 }
 
-export default AboutYou;
+export default FavoriteNumber;
