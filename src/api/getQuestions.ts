@@ -15,6 +15,15 @@ export const getAboutYouInfo = async (): Promise<Partial<IPageInfo>> => {
     return data['about-you'];
   }
 };
+export const getFavoriteNumberInfo = async (): Promise<Partial<IPageInfo>> => {
+  try {
+    const response = await api.get('/favorite-number');
+    return response.data;
+  } catch (error) {
+    // if there is a problem with CORS return data directly
+    return data['favorite-number'] as IPageInfo;
+  }
+};
 export const getEmailInfo = async (): Promise<Partial<IPageInfo>> => {
   try {
     const response = await api.get('/email');
@@ -40,6 +49,14 @@ export const getSuperpowersInfo = async (): Promise<
 export const postName = async (name: string) => {
   try {
     const response = await api.post('/name', {name});
+    return response.data;
+  } catch (error) {
+    console.warn('error', error);
+  }
+};
+export const postFavoriteNumber = async (number: string) => {
+  try {
+    const response = await api.post('/favorite-number', {number});
     return response.data;
   } catch (error) {
     console.warn('error', error);
