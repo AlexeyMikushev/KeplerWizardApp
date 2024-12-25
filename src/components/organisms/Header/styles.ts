@@ -2,6 +2,7 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    height: 100,
+    marginTop: 20,
+    marginHorizontal: 40,
   },
 });

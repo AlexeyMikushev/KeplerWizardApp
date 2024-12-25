@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import ProgressBar from '../../atoms/ProgressBar';
 import {styles} from './styles';
 
@@ -10,12 +10,12 @@ type Props = {
 
 const Header = ({progressCount, progressBarMax}: Props) => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <ProgressBar
         progressBarMax={progressBarMax}
         progressCount={progressCount}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
